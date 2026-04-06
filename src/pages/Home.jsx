@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { Auth } from '../context/AuthContext';
 
+
 const Home = () => {
    let {isLoggedIn}=useContext(Auth)
   return (

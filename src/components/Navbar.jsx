@@ -4,7 +4,7 @@ import { Auth } from '../context/AuthContext'
 
 const Navbar = () => {
     let navigate= useNavigate()
-    let {isLoggedIn ,setIsLoggedIn}=useContext(Auth)
+    let {isLoggedIn ,setIsLoggedIn,setIsSidebar}=useContext(Auth)
     let firstLatter = isLoggedIn.name.substring(0,1).toUpperCase()
     
     return (
@@ -27,7 +27,7 @@ const Navbar = () => {
                     </p>
                     <p className='font-semibold text-sm'>{isLoggedIn.name}</p>
                 </div>
-                <div className=' px-3 py-2 bg-gray-800 rounded-xl'>
+                <div onClick={()=>setIsSidebar((prev)=>!prev)} className=' px-3 py-2 bg-gray-800 rounded-xl'>
                     <i className=" fa-solid fa-cart-shopping"></i>
                 </div>
                 <div onClick={()=>{

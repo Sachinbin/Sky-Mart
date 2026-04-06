@@ -11,6 +11,8 @@ import Shop from '../pages/Shop'
 import About from '../pages/About'
 import ProtectedRoute from './ProtectedRoute'
 import AuthRoute from './AuthRoute'
+import ProductDetails from '../pages/ProductDetails'
+
 
 const AppRoute = () => {
     let router = createBrowserRouter([
@@ -51,6 +53,10 @@ const AppRoute = () => {
                         {
                             path: "about",
                             element: <About />
+                        },
+                        {
+                            path:"product/:id",
+                            element:<ProductDetails/>
                         }
                     ]
                 }
