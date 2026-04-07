@@ -127,7 +127,7 @@ const ProductDetails = () => {
                 </div>
             </div>
 
-    // sidebar-------------------------------------------------------------
+    
             {
                 isSidbar ? <ProdSideBar/>: ""
             }

@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 
 import { Auth } from '../context/AuthContext';
 import ProdSideBar from '../components/ProdSideBar';
+import { useNavigate } from 'react-router';
 
 
 const Home = () => {
   let { isLoggedIn,isSidbar } = useContext(Auth)
+  let navigate = useNavigate()
   return (
     <div>
       <div className="bg-black text-white min-h-screen px-6 md:px-12 py-6">
@@ -26,11 +28,11 @@ const Home = () => {
           </p>
 
           <div className="flex gap-4">
-            <button className="bg-lime-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-lime-300 transition">
+            <button onClick={()=>navigate("/dashboard/shop")} className="bg-lime-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-lime-300 transition">
               Shop Now →
             </button>
 
-            <button className="border border-gray-700 px-6 py-3 rounded-xl hover:border-lime-400 transition">
+            <button onClick={()=>navigate("/dashboard/shop")} className="border border-gray-700 px-6 py-3 rounded-xl hover:border-lime-400 transition">
               View All Products
             </button>
           </div>
@@ -144,7 +146,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-        // sidebar-------------------------------------------------------------
+       
       {
         isSidbar ? <ProdSideBar/> : ""
       }
