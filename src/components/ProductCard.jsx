@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router'
+import { Auth } from '../context/AuthContext';
 
 const ProductCard = ({ item }) => {
     let navigate = useNavigate()
+    let {addItemInCart, cart}=useContext(Auth)
+    let [isInCart,setIsIncart]= useState(false)
+
+
+    
 
     return (
         <div>
@@ -37,9 +43,14 @@ const ProductCard = ({ item }) => {
                         <div className="flex justify-between items-center">
                             <p className="text-lime-400 font-bold">${item.price}</p>
 
-                            <button className="bg-lime-400 text-black px-3 py-1 rounded-lg text-sm hover:bg-lime-300">
+                            {
+                                isInCart ===true ?"" : <button onClick={()=>{
+                                    addItemInCart(item.id)
+                                     }} className="bg-lime-400 text-black px-3 py-1 rounded-lg text-sm hover:bg-lime-300">
                                 Add
                             </button>
+                            }
+
                         </div>
 
                     </div>

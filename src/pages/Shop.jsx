@@ -1,14 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { Auth } from "../context/AuthContext";
+import ProdSideBar from "../components/ProdSideBar";
 
 const Shop = () => {
-  let { productData } = useContext(Auth);
-  console.log(productData[0])
+  let { productData,isSidbar,setIsSidebar,addItemInCart } = useContext(Auth);
+  // console.log(productData[0])  
+
+  let [category,setCategory] = useState([])
+  console.log(category)
+
+  // let findCategory=(input)=>{
+  //   productData.filter((elem)=>{
+  //     elem.categoty === input
+  //     setCategory([...elem])
+  //   })
+  // }
    
  
   return (
-    <div className="bg-black text-white min-h-screen px-6 md:px-12 py-8">
+   <div>
+     <div className="bg-black text-white min-h-screen px-6 md:px-12 py-8">
 
       {/* TITLE */}
       <h1 className="text-3xl md:text-4xl font-semibold mb-2">
@@ -25,7 +37,7 @@ const Shop = () => {
           className="flex-1 px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700 focus:border-lime-400 outline-none"
         />
 
-        <select className="px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700">
+        <select onChange={(e)=>{(e.target.value)}} className="px-4 py-3 rounded-lg bg-[#1a1a1a] border border-gray-700">
           <option>All Categories</option>
           <option>beauty</option>
           <option>Electronic</option>
@@ -47,6 +59,12 @@ const Shop = () => {
 
 
     </div>
+
+    // sidebar-------------------------------------------------------------
+            {
+                isSidbar ? <ProdSideBar/>: ""
+            }
+   </div>
   );
 };
 

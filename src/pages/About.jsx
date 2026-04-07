@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Auth } from "../context/AuthContext";
+import ProdSideBar from "../components/ProdSideBar";
 
 const About = () => {
+  let {isSidbar}=useContext(Auth)
   return (
-    <div className="bg-black text-white min-h-screen px-6 py-10 flex flex-col items-center">
+   <div>
+     <div className="bg-black text-white min-h-screen px-6 py-10 flex flex-col items-center">
 
       {/* ICON */}
       <div className="w-10 h-10 bg-lime-400 rounded-full flex items-center justify-center text-black mb-4">
@@ -83,6 +87,12 @@ const About = () => {
       </div>
 
     </div>
+
+      // sidebar-------------------------------------------------------------
+            {
+                isSidbar ? <ProdSideBar/> : ""
+            }
+   </div>
   );
 };
 

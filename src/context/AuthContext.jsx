@@ -9,8 +9,9 @@ export let SecurityProvider = ({ children }) => {
     let [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem("logged user")) || null)
     let [productData, setProductData] = useState([])
     let [isSidbar, setIsSidebar] = useState(false)
-    let [cart, setCart] = useState([])
+    let [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
 
+    // console.log(cart)
     useEffect(() => {
         (async () => {
             try {
@@ -24,8 +25,38 @@ export let SecurityProvider = ({ children }) => {
             }
         })()
     }, [])
-    // setProductData(ProductApi)
-    // console.log(sidbar)
+
+    
+
+    let addItemInCart = (id)=>{
+        let item=productData.find((elem)=>{
+            return elem.id === id
+        })
+        // console.log(item)
+        let arr = [...cart,item]
+        setCart(arr)
+        localStorage.setItem("cart",JSON.stringify(arr))
+    }
+
+    let deleCartItem = (id) =>{
+        console.log(id)
+        let res = cart.filter((elem)=>{
+            return elem.id !== id
+        })
+        setCart(res)
+        localStorage.setItem("cart",JSON.stringify(res))
+    }
+
+    let IncreaseItemQty = (id) => {
+        console.log(id)
+    }
+
+     let DecreaseItemQty = (id) => {
+        console.log(id)
+    }
+
+   
+   
 
     return (
         <Auth.Provider
@@ -37,7 +68,14 @@ export let SecurityProvider = ({ children }) => {
                 isLoggedIn,
                 setIsLoggedIn,
                 isSidbar,
-                setIsSidebar
+                setIsSidebar,
+                cart,
+                setCart,
+                addItemInCart,
+                deleCartItem,
+                IncreaseItemQty,
+                DecreaseItemQty,
+                
             }}
         >{children}</Auth.Provider>
     )

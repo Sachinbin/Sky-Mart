@@ -12,6 +12,7 @@ import About from '../pages/About'
 import ProtectedRoute from './ProtectedRoute'
 import AuthRoute from './AuthRoute'
 import ProductDetails from '../pages/ProductDetails'
+import Carts from '../pages/Carts'
 
 
 const AppRoute = () => {
@@ -58,6 +59,7 @@ const AppRoute = () => {
                             path:"product/:id",
                             element:<ProductDetails/>
                         }
+                        
                     ]
                 }
             ]
