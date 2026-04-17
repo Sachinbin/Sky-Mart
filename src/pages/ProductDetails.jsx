@@ -13,6 +13,7 @@ const ProductDetails = () => {
     } = useContext(Auth)
 
     let navigate = useNavigate()
+    let {addItemInCart} = useContext(Auth)
 
     // console.log(isSidbar)
     let data = productData.find((elem) => {
@@ -77,7 +78,7 @@ const ProductDetails = () => {
 
                         {/* BUTTONS */}
                         <div className="flex items-center gap-4 mb-6">
-                            <button className="bg-lime-400 text-black px-8 py-3 rounded-xl font-semibold hover:bg-lime-300 transition">
+                            <button onClick={()=> addItemInCart(data.id)} className="bg-lime-400 text-black px-8 py-3 rounded-xl font-semibold hover:bg-lime-300 transition">
                                 🛒 Add to Cart
                             </button>
 

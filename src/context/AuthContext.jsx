@@ -16,7 +16,7 @@ export let SecurityProvider = ({ children }) => {
         (async () => {
             try {
                 let res = await axios.get('https://dummyjson.com/products')
-                console.log("Api hitted")
+                // console.log(res.data.products)
                 setProductData(res.data.products)
                 // return res.data.products
 
@@ -33,15 +33,15 @@ export let SecurityProvider = ({ children }) => {
             return elem.id === id
         })
         // console.log(item)
-        let arr = [...cart,item]
+        let arr = [...cart,{item,quantity:1}]
         setCart(arr)
         localStorage.setItem("cart",JSON.stringify(arr))
     }
 
     let deleCartItem = (id) =>{
-        console.log(id)
+        // console.log(id)
         let res = cart.filter((elem)=>{
-            return elem.id !== id
+            return elem.item.id !== id
         })
         setCart(res)
         localStorage.setItem("cart",JSON.stringify(res))

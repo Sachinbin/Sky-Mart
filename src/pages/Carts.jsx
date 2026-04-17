@@ -35,7 +35,9 @@ const Carts = ({elem}) => {
         </div>
 
         {/* DELETE */}
-        <button onClick={()=>deleCartItem(elem.id)} className="text-red-500">
+        <button onClick={()=>{
+          // console.log(elem.id);
+          deleCartItem(elem.id)}} className="text-red-500">
           <i className="fa-solid fa-trash"></i>
         </button>
 

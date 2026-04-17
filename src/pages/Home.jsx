@@ -95,7 +95,7 @@ const Home = () => {
           <div className="bg-[#1a1a1a] rounded-2xl p-6">
             <div className="flex justify-between mb-4">
               <h3>⭐ Top Rated</h3>
-              <span className="text-lime-400 text-sm cursor-pointer">See all →</span>
+              <span onClick={()=>navigate("/dashboard/shop")} className="text-lime-400 text-sm cursor-pointer">See all →</span>
             </div>
 
             <div className="space-y-4">
@@ -114,7 +114,7 @@ const Home = () => {
           <div className="bg-[#1a1a1a] rounded-2xl p-6">
             <div className="flex justify-between mb-4">
               <h3>⚡ New Arrivals</h3>
-              <span className="text-lime-400 text-sm cursor-pointer">See all →</span>
+              <span onClick={()=>navigate("/dashboard/shop")} className="text-lime-400 text-sm cursor-pointer">See all →</span>
             </div>
 
             <div className="space-y-4">

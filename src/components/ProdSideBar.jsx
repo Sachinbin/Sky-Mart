@@ -9,7 +9,8 @@ const ProdSideBar = () => {
     let totalSum = ()=>{
         let sum = 0
         cart.map((elem)=>{
-            sum = elem.price+sum
+            // console.log(elem)
+            sum = elem.item.price+sum
         })
         // console.log(sum)
         return sum.toFixed(2)
@@ -49,7 +50,8 @@ const ProdSideBar = () => {
                         {/* CART ITEM */}
                         {
                             cart.map((elem)=>{
-                                return <Carts elem={elem} key={elem.id}/>
+                                // console.log(elem.item)
+                                return <Carts elem={elem.item} key={elem.id}/>
                             })
                         }
                        
